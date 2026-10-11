@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Amira — With Love</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #0c1018;
+  --panel: #131a24;
+  --gold: #d8bd87;
+  --cream: #f3eee5;
+  --muted: #aaa9aa;
+  --line: rgba(216,189,135,.23);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+a { color: inherit; text-decoration: none; }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 7%;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.brand {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  letter-spacing: 3px;
+}
+
+.nav-note {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+section { padding: 90px 7%; }
+
+.hero {
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%,
+    rgba(128,105,73,.15), transparent 58%);
+}
+
+.hero-inner { max-width: 760px; }
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+h1, h2, h3, .serif {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: clamp(58px, 12vw, 108px);
+  line-height: 1;
+  margin: 28px 0;
+  letter-spacing: -2px;
+}
+
+h1 em {
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.subtitle {
+  color: var(--muted);
+  max-width: 430px;
+  margin: 0 auto 35px;
+  font-size: 14px;
+}
+
+.button {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  padding: 13px 25px;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.button:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.divider {
+  width: 55px;
+  height: 1px;
+  background: var(--gold);
+  margin: 28px auto;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 48px;
+}
+
+h2 {
+  font-size: clamp(38px, 7vw, 58px);
+  line-height: 1.1;
+  margin: 15px 0;
+}
+
+.section-head p, .muted { color: var(--muted); }
+
+.letter-section { padding-top: 35px; }
+
+.letter {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: clamp(25px, 7vw, 55px);
+  background: linear-gradient(145deg, #151d28, #10151e);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.letter-content {
+  display: none;
+  text-align: left;
+  max-width: 490px;
+  margin: 35px auto 0;
+  animation: appear .8s ease;
+}
+
+.letter-content p { margin: 19px 0; }
+
+.signature {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 29px;
+  margin-top: 30px;
+}
+
+.grid {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.reason {
+  border-top: 1px solid var(--line);
+  padding: 27px 18px;
+}
+
+.reason .number {
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.reason h3 {
+  font-size: 27px;
+  margin: 12px 0;
+}
+
+.reason p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.memories {
+  background: #111721;
+  text-align: center;
+}
+
+.memory-list {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+.memory {
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.memory-index {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 27px;
+}
+
+.memory h3 { font-size: 24px; margin: 0; }
+.memory p { color: var(--muted); font-size: 13px; margin: 5px 0; }
+
+.closing {
+  text-align: center;
+  min-height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closing-inner { max-width: 650px; }
+
+.closing h2 { font-size: clamp(43px, 8vw, 72px); }
+
+.closing p {
+  color: var(--muted);
+  max-width: 430px;
+  margin: 25px auto;
+}
+
+footer {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding: 25px;
+  color: #88898d;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width:650px) {
+  section { padding: 70px 7%; }
+  .grid { grid-template-columns: 1fr; gap: 0; }
+  .reason { padding: 20px 5px; }
+  .hero { min-height: 78vh; }
+  .nav-note { font-size: 8px; letter-spacing: 1px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#" class="brand">A. ♡</a>
+  <span class="nav-note">A little something for you</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner fade">
+    <div class="eyebrow">Not a special occasion. Just you.</div>
+    <h1>For <em>Amira.</em></h1>
+    <div class="divider"></div>
+    <p class="subtitle">
+      Some things are too meaningful to leave unsaid.
+      So I made a little place for the words I want you to know.
+    </p>
+    <a href="#letter" class="button">There's something for you</a>
+  </div>
+</section>
+
+<section id="letter" class="letter-section">
+  <div class="letter fade">
+    <div class="eyebrow">A letter, from me to you</div>
+    <h2 class="serif">A few words<br>I've been meaning to say.</h2>
+    <p class="muted">
+      Take your time. This one's just for you.
+    </p>
+    <button class="button" id="openLetter" onclick="revealLetter()">
+      Open your letter
+    </button>
+
+    <div class="letter-content" id="letterContent">
+      <p>My dearest Amira,</p>
+
+      <p>
+        Hey! I'm bored Haha and I just found myself
+        thinking about you, and I wanted to do something
+        that might make you smile.
+      </p>
+
+      <p>
+        I love that you're someone I can think about in the
+        middle of an ordinary day and suddenly have a reason
+        to smile. It's the little things about you, the
+        moments we share, and the person you are that make
+        you so important to me.
+      </p>
+
+      <p>
+        I can't promise that every day will be perfect.
+        But I hope I can keep showing up, keep learning
+        about you, and keep finding little ways to remind
+        you that you matter to me.
+      </p>
+
+      <p>
+        If there's one thing I hope you remember always,
+        it's that you don't have to do anything extraordinary
+        to be special to me. Being you is already enough.
+      </p>
+
+      <p>
+        Thank you for being part of my life. I'm looking
+        forward to all the memories we haven't made yet.
+      </p>
+
+      <p>Always choosing you, one day at a time.</p>
+
+      <div class="signature">With love, always.</div>
+    </div>
+  </div>
+</section>
+
+<section id="reasons">
+  <div class="section-head fade">
+    <div class="eyebrow">The little things</div>
+    <h2>Why you're special to me.</h2>
+    <p>
+      Not a complete list. Just a few things worth saying
+      out loud.
+    </p>
+  </div>
+
+  <div class="grid">
+    <article class="reason fade">
+      <div class="number">01 / YOUR PRESENCE</div>
+      <h3>You make things lighter.</h3>
+      <p>
+        Somehow, an ordinary day feels different when I get
+        to share a little part of it with you.
+      </p>
+    </article>
+
+    <article class="reason fade">
+      <div class="number">02 / YOUR HEART</div>
+      <h3>The person you are.</h3>
+      <p>
+        It's not just how you make me feel. It's the person
+        I get to know, appreciate, and admire.
+      </p>
+    </article>
+
+    <article class="reason fade">
+      <div class="number">03 / OUR FUTURE</div>
+      <h3>More moments with you.</h3>
+      <p>
+        There are still conversations to have, places to
+        discover, and memories waiting to become ours.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="memories" class="memories">
+  <div class="section-head fade">
+    <div class="eyebrow">Our story</div>
+    <h2>Little moments.<br>Lasting memories.</h2>
+    <p>
+      One day, we'll look back at all these little moments
+      and realize how much they meant.
+    </p>
+  </div>
+
+  <div class="memory-list fade">
+    <div class="memory">
+      <div class="memory-index">01</div>
+      <div>
+        <h3>The beginning</h3>
+        <p>
+          Our first encounter might not be good but who would've thought that we end up like this.
+        </p>
+      </div>
+    </div>
+
+    <div class="memory">
+      <div class="memory-index">02</div>
+      <div>
+        <h3>My favorite memory</h3>
+        <p>
+          That one moment when you take good care of me when i was in the hospital. Every moment with you will always be my favorite.
+        </p>
+      </div>
+    </div>
+
+    <div class="memory">
+      <div class="memory-index">03</div>
+      <div>
+        <h3>To be continued...</h3>
+        <p>
+          The best part is that our story isn't finished.
+          There are still so many moments ahead of us.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="closing-inner fade">
+    <div class="eyebrow">One last thing</div>
+    <h2>Out of all the little things in life,<br><em>I'm glad I found you.</em></h2>
+    <div class="divider"></div>
+    <p>
+      This page will never say everything I feel.
+      But I hope it reminds you, even for a moment,
+      that someone is thinking of you with love.
+    </p>
+    <button class="button" onclick="finalMessage()">
+      One last message
+    </button>
+    <p id="final" style="color:var(--gold);display:none">
+      Amira, if I could give you one thing today,
+      it would be the chance to see yourself through my eyes.
+      You would understand why you mean so much to me. ♡
+    </p>
+  </div>
+</section>
+
+<footer>
+  MADE FOR AMIRA · WITH LOVE, JUST BECAUSE
+</footer>
+
+<script>
+function revealLetter() {
+  document.getElementById('letterContent').style.display = 'block';
+  document.getElementById('openLetter').style.display = 'none';
+}
+
+function finalMessage() {
+  document.getElementById('final').style.display = 'block';
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
+
+
+
